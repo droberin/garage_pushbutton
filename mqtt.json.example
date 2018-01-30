@@ -1,0 +1,5 @@
+{
+    "mqtt_user": "user",
+    "mqtt_pass": "passwordo",
+    "mqtt_broker": "your.broker.io"
+}
