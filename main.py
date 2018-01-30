@@ -6,6 +6,8 @@ from machine import unique_id, Pin
 from umqtt.simple import MQTTClient
 from umqtt.simple import MQTTException
 from json import loads as json_loads
+from os import stat
+
 config_file = "mqtt.json"
 
 mqtt_user = None
