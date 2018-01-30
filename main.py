@@ -34,7 +34,7 @@ if "mqtt_pass" in config_data:
 if "topic" in config_data:
     mqtt_topic = config_data['topic']
 else:
-    mqtt_topic = b"ratoni/jail"
+    mqtt_topic = b"garage/push"
 
 if "pin" in config_data and "pin_label" in config_data:
     pin_id = config_data['pin_id']
