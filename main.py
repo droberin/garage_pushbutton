@@ -24,7 +24,7 @@ else:
 if "client_id" in config_data:
     client_id = config_data['client_id']
 else:
-    client_id = ubinascii.hexlify(unique_id())
+    client_id = hexlify(unique_id())
 
 if "mqtt_user" in config_data:
     mqtt_user = config_data['mqtt_user']
@@ -36,7 +36,7 @@ if "mqtt_pass" in config_data:
 if "topic" in config_data:
     mqtt_topic = config_data['topic']
 else:
-    mqtt_topic = b"garage/push"
+    mqtt_topic = "garage/push"
 
 if "pin" in config_data and "pin_label" in config_data:
     pin_id = config_data['pin_id']
@@ -71,7 +71,7 @@ def print_status():
 
 def sub_cb(topic, msg):
     print((topic, msg))
-    if msg == b"push":
+    if msg == "push":
         print("Received push from MQTT")
         toggle_gate(2)
 
