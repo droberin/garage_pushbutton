@@ -36,7 +36,7 @@ if "mqtt_pass" in config_data:
 if "topic" in config_data:
     mqtt_topic = config_data['topic']
 else:
-    mqtt_topic = "garage/push"
+    mqtt_topic = b"garage/push"
 
 if "pin" in config_data and "pin_label" in config_data:
     pin_id = config_data['pin_id']
@@ -71,7 +71,7 @@ def print_status():
 
 def sub_cb(topic, msg):
     print((topic, msg))
-    if msg == "push":
+    if msg == b"push":
         print("Received push from MQTT")
         toggle_gate(2)
 
@@ -132,3 +132,8 @@ except TypeError:
     exit(1)
 
 print("MQTTClient seems to be fine, waiting for the call...")
+
+while True:
+    c.wait_msg()
+    print(".")
+    sleep(1)
