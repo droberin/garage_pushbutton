@@ -69,6 +69,15 @@ def print_status():
     screen.print(status_data)
 
 
+def no_connection_reboots():
+    status_data = [
+        "WiFi not connected:",
+        " rebooting device...",
+    ]
+    screen.print(status_data)
+    sleep(2)
+
+
 def sub_cb(topic, msg):
     print((topic, msg))
     if msg == b"push":
@@ -137,3 +146,6 @@ while True:
     c.wait_msg()
     print(".")
     sleep(1)
+    if not wlan.isconnected:
+        no_connection_reboots()
+        exit(1)
